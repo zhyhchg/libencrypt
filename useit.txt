@@ -1,0 +1,15 @@
+#include "stdafx.h"
+#include <stdio.h>
+#include <Windows.h>
+#pragma comment(lib,"libencrypt.lib")
+extern "C" int libencrypt(DWORD param1,DWORD param2,DWORD param3,DWORD param4,DWORD param5,DWORD param6);
+int _tmain(int argc, _TCHAR* argv[])
+{
+	_asm int 3;
+	unsigned char strSrc[1000]={0};  
+  int len=0x240;
+  char param1[100]={0};
+  char param2[100]={0};
+  libencrypt((DWORD)strSrc,(DWORD)strSrc,(DWORD)&len,(DWORD)param1,(DWORD)param2,0);
+	return 0;
+}
